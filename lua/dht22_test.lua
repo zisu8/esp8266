@@ -1,5 +1,6 @@
 -- Test Programm zum auslesen des DHT22 an GPIO Pin4
 -- an einem esp8266 NODEMCU
+-- Flo
 
 -- GPIO PIN
 pin = 4
