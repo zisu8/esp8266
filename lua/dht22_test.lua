@@ -1,8 +1,8 @@
--- Test Programm zum auslesen des DHT22 an GPIO Pin4
+-- Test Programm zum auslesen des DHT22 an GPIO2 Pin D4
 -- an einem esp8266 NODEMCU
--- Flo
 
--- GPIO PIN
+
+-- GPIO2 PIN D4
 pin = 4
 
 status, temp, humi, temp_dec, humi_dec = dht.read(pin)
