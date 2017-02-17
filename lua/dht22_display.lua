@@ -17,7 +17,8 @@ pin = 4 -- DHT22
 sda = 2 -- SDA Pin
 scl = 1 -- SCL Pin
 
-sleep_time = 6000
+# sleep time in µs
+sleep_time = 5000000
 
 function init_OLED(sda,scl) --Set up the u8glib lib
    sla = 0x3C
