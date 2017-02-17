@@ -63,4 +63,5 @@ end
 -- Output Display
 init_OLED(sda,scl)
 read_clima_data()
+print("Going to sleep for "..(sleep_time/1000/1000).." seconds...")
 node.dsleep(sleep_time)
