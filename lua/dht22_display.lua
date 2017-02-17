@@ -17,6 +17,8 @@ pin = 4 -- DHT22
 sda = 2 -- SDA Pin
 scl = 1 -- SCL Pin
 
+sleep_time = 6000
+
 function init_OLED(sda,scl) --Set up the u8glib lib
    sla = 0x3C
    i2c.setup(0, sda, scl, i2c.SLOW)
@@ -39,10 +41,9 @@ function print_OLED()
  until disp:nextPage() == false
 end
 
-
-status, temp, humi, temp_dec, humi_dec = dht.read(pin)
-
-if status == dht.OK then
+function read_clima_data()
+  status, temp, humi, temp_dec, humi_dec = dht.read(pin)
+  if status == dht.OK then
     -- Float firmware using this example
     --print("DHT Temperature:"..temp)
     --print("DHT Humidity:"..humi)
@@ -50,12 +51,15 @@ if status == dht.OK then
     str2 = "Humi: "..humi.." %"
     print(str1)
     print(str2)
-elseif status == dht.ERROR_CHECKSUM then
+    print_OLED()
+  elseif status == dht.ERROR_CHECKSUM then
     print( "DHT Checksum error." )
-elseif status == dht.ERROR_TIMEOUT then
+  elseif status == dht.ERROR_TIMEOUT then
     print( "DHT timed out." )
+  end
 end
 
 -- Output Display
 init_OLED(sda,scl)
-print_OLED() 
+read_clima_data()
+node.dsleep(sleep_time)
