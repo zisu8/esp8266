@@ -5,6 +5,7 @@ function startup()
       dofile("dht22_display.lua")
 end
 
+wifi.setmode(wifi.NULLMODE)
 
 print("You have 5 seconds to abort Startup")
 print("Waiting...")
