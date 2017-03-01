@@ -2,7 +2,9 @@
 
 function startup()
       print("gooooo")
-      dofile("dht22_display.lua")
+--      dofile("dht22_display.lua")
+      dofile("dht22_bme280_display.lua")
+
 end
 
 wifi.setmode(wifi.NULLMODE)
